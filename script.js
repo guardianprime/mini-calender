@@ -1,20 +1,20 @@
-const monthEl = document.getElementById("month")
-const dayOfWeekEl = document.getElementById("day-of-week")
-const todayEl = document.getElementById("today")
-const yearEl = document.getElementById("year")
+const monthEl = document.getElementById("month");
+const dayOfWeekEl = document.getElementById("day-of-week");
+const todayEl = document.getElementById("today");
+const yearEl = document.getElementById("year");
 
+const now = new Date();
 
-const monthsInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+const month = now.getMonth();
+const dayOfWeek = now.getDay();
+const today = now.getDate();
+const year = now.getFullYear();
 
-const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "ThursDay", "Friday", "Saturday", "Sunday"]
-
-const month = new Date().getMonth()
-const dayOfWeek = new Date().getDay()
-const today = new Date().getDate()
-const year = new Date().getFullYear()
-monthEl.innerText = monthsInYear[month]
-dayOfWeekEl.innerText = daysOfWeek[dayOfWeek]
-todayEl.innerText = today
-yearEl.innerText = year
-
-console.log(year)
+monthEl.innerText = new Date(year, month).toLocaleString("en", {
+    month: "long"
+});
+dayOfWeekEl.innerText = new Date(year, month, today).toLocaleString("en", {
+    weekday: "long"
+});
+todayEl.innerText = today;
+yearEl.innerText = year;
